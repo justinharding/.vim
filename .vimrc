@@ -30,7 +30,6 @@ filetype plugin indent on
  " General {
      filetype plugin indent on " load filetype plugins/indent settings
      set autochdir " always switch to the current file directory 
-     set backspace=indent,eol,start " make backspace a more flexible
      set backup " make backup files
      set backupdir=~/tmp/vim/backup " where to put backup files
      set clipboard+=unnamed " share windows clipboard
@@ -52,7 +51,6 @@ filetype plugin indent on
      "             | | +-- "h" Normal and Visual (not recommended)
      "             | +-- <Space> Normal and Visual
      "             +-- <BS> Normal and Visual
-     set wildmenu " turn on command line completion wild style
      " ignore these list file extensions
      set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
                      \*.jpg,*.gif,*.png
@@ -62,16 +60,11 @@ filetype plugin indent on
 " Vim UI {
      set cursorcolumn " highlight the current column
      set cursorline " highlight current line
-     set incsearch " BUT do highlight as you type you 
-                    " search phrase
-     set laststatus=2 " always show the status line
      set lazyredraw " do not redraw while running macros
      set linespace=0 " don't insert any extra pixel lines 
                       " betweens rows
      set list " we do what to show tabs, to ensure we get them 
                " out of my files
-     set listchars=tab:>.,trail:- " show tabs and trailing 
-     " set listchars=tab:>-,trail:- " show tabs and trailing 
      set matchtime=5 " how many tenths of a second to blink 
                       " matching brackets for
      set hlsearch " highlight searched for phrases
@@ -80,13 +73,8 @@ filetype plugin indent on
      set number " turn on line numbers
      set numberwidth=5 " We are good up to 99999 lines
      set report=0 " tell us when anything is changed via :...
-     set ruler " Always show current positions along the bottom
-     set scrolloff=2 " Keep 10 lines (top/bottom) for scope
      set shortmess=aOstT " shortens messages to avoid 
                           " 'press a key' prompt
-     set showcmd " show the command being typed
-     set showmatch " show matching brackets
-     set sidescrolloff=10 " Keep 5 lines at the size
      set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
      "              | | | | |  |   |      |  |     |    |
      "              | | | | |  |   |      |  |     |    + current 
@@ -104,7 +92,7 @@ filetype plugin indent on
      "              +-- full path to file in the buffer
  " }
 
- " Text Formatting/Layout {
+" Text Formatting/Layout {
      " set completeopt= " don't use a pop up menu for completions
      " set noexpandtab
      set expandtab " no real tabs please!
@@ -112,12 +100,12 @@ filetype plugin indent on
      set ignorecase " case insensitive by default
      set infercase " case inferred by default
      set nowrap " do not wrap line
-     set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
      set smartcase " if there are caps, go case-sensitive
-     " set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
-     " set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
-     " set tabstop=4
+     set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
+     set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
+     set tabstop=4
      " set tabstop=8 " real tabs should be 8, and they will show with set list on
+     set cino=N-s,i0,g0
  " }
 
 " Folding {
