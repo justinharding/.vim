@@ -1,14 +1,12 @@
 execute pathogen#infect()
 filetype plugin indent on
 
-" Modeline and Notes {
  "   vim: set foldmarker={,} foldlevel=0 spell:
- " }
- " Basics {
+ "
      set nocompatible " explicitly get out of vi-compatible mode
      set noexrc " don't use local version of .(g)vimrc, .exrc
      set background=dark " we plan to use a dark background
-     set cpoptions=aABceFsmq
+"     set cpoptions=aABceFsmq
      "             |||||||||
      "             ||||||||+-- When joining lines, leave the cursor 
      "             |||||||      between joined lines
@@ -25,9 +23,7 @@ filetype plugin indent on
      "             |+-- :write updates alternative file name
      "             +-- :read updates alternative file name
      syntax on " syntax highlighting on
- " }
 
- " General {
      filetype plugin indent on " load filetype plugins/indent settings
      set autochdir " always switch to the current file directory 
      set backup " make backup files
@@ -55,9 +51,7 @@ filetype plugin indent on
      set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
                      \*.jpg,*.gif,*.png
      set wildmode=list:longest " turn on wild mode huge list
- " }
 
-" Vim UI {
      set cursorcolumn " highlight the current column
      set cursorline " highlight current line
      set lazyredraw " do not redraw while running macros
@@ -90,9 +84,7 @@ filetype plugin indent on
      "              | | +-- readonly flag in square brackets
      "              | +-- rodified flag in square brackets
      "              +-- full path to file in the buffer
- " }
 
-" Text Formatting/Layout {
      " set completeopt= " don't use a pop up menu for completions
      " set noexpandtab
      set expandtab " no real tabs please!
@@ -104,11 +96,8 @@ filetype plugin indent on
      set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
      set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
      set tabstop=4
-     " set tabstop=8 " real tabs should be 8, and they will show with set list on
      set cino=N-s,i0,g0
- " }
 
-" Folding {
      set foldenable " Turn on folding
      set foldmarker={,} " Fold C style code (only use this as default 
                          " if you use a high foldlevel)
@@ -122,17 +111,12 @@ filetype plugin indent on
      endfunction " }
      set foldtext=SimpleFoldText() " Custom fold text function 
                                     " (cleaner than default)
- " }
  
- " Plugin Settings {
      let b:match_ignorecase = 1 " case is stupid
      let perl_extended_vars=1 " highlight advanced perl vars 
                                " inside strings
- " }
 
-" GUI Settings {
  if has("gui_running")
-     " Basics {
      colorscheme inkpot
          set columns=180 " perfect size for me
          "set guifont=Consolas:h10 " My favorite font
@@ -144,6 +128,4 @@ filetype plugin indent on
          "              +  use GUI tabs, not console style tabs
          set lines=55 " perfect size for me
          set mousehide " hide the mouse cursor when typing
-     " }
 endif
- " }
