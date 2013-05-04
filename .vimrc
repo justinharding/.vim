@@ -129,3 +129,6 @@ filetype plugin indent on
          set lines=55 " perfect size for me
          set mousehide " hide the mouse cursor when typing
 endif
+
+let Gtags_Auto_Map = 1
+
