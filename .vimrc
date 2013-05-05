@@ -130,5 +130,11 @@ filetype plugin indent on
          set mousehide " hide the mouse cursor when typing
 endif
 
+" rainbow parentheses
+au FileType c,cpp,objc,objcpp call rainbow#load()
+
+" gnu global
 let Gtags_Auto_Map = 1
 
+" SuperTab completion fall-back 
+let g:SuperTabDefaultCompletionType='<c-x><c-u><c-p>'
