@@ -135,8 +135,65 @@ au FileType c,cpp,objc,objcpp call rainbow#load()
 " gnu global
 let Gtags_Auto_Map = 1
 
+" Clang Complete Settings
+" g:clang_user_options set at vimprj section
+let g:clang_use_library=1
+let g:clang_complete_copen=1
+let g:clang_complete_macros=1
+let g:clang_complete_patterns=0
+" Avoids lame path cache generation and other unknown sources for includes 
+let g:clang_auto_user_options=''
+let g:clang_memory_percent=70
+
+set conceallevel=2
+set concealcursor=vin
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+" The single one that works with clang_complete
+let g:clang_snippets_engine='clang_complete'
+
+" Complete options (disable preview scratch window, longest removed to aways
+" show menu)
+set completeopt=menu,menuone
+
+" Limit popup menu height
+set pumheight=20
+
 " SuperTab completion fall-back 
 let g:SuperTabDefaultCompletionType='<c-x><c-u><c-p>'
+
+" SuperTab completion fall-back for context aware completion
+" (incompatible with g:clang_auto_select=0, using the above)
+" let g:SuperTabContextDefaultCompletionType='<c-x><c-u><c-p>'
+
+" Reparse the current translation unit in background
+command Parse
+\ if &ft == 'cpp'                 |
+\   call g:ClangBackgroundParse() |
+\ else                            |
+\   echom 'Parse What?'           |
+\ endif
+
+" Reparse the current translation unit and check for errors
+command ClangCheck
+\ if &ft == 'cpp'                 |
+\   call g:ClangUpdateQuickFix()  |
+\ else                            |
+\   echom 'Check What?'           |
+\ endif
+
+noremap  <silent> <F5> :Parse<cr>
+noremap  <silent> <F6> :ClangCheck<cr>
+noremap! <silent> <F5> <c-o>:Parse<cr>
+noremap! <silent> <F6> <c-o>:ClangCheck<cr>
+
+" Called BEFORE sourcing .vimprj and when not sourcing
+"function! g:vimprj#dHooks['SetDefaultOptions']['main_options'](dParams)
+    "let g:clang_user_options = '-std=c++11 -stdlib=libc++'
+"endfunction
+
+
+
 
 let g:alternateExtensions_hh = "c,cc,cpp,cxx,CC"
 let g:alternateExtensions_cc = "h,hh,H"
