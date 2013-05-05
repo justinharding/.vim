@@ -1,5 +1,5 @@
 execute pathogen#infect()
-filetype plugin indent on
+filetype plugin on
 
  "   vim: set foldmarker={,} foldlevel=0 spell:
  "
@@ -24,7 +24,6 @@ filetype plugin indent on
      "             +-- :read updates alternative file name
      syntax on " syntax highlighting on
 
-     filetype plugin indent on " load filetype plugins/indent settings
      set autochdir " always switch to the current file directory 
      set backup " make backup files
      set backupdir=~/tmp/vim/backup " where to put backup files
@@ -129,6 +128,15 @@ filetype plugin indent on
          set lines=55 " perfect size for me
          set mousehide " hide the mouse cursor when typing
 endif
+
+" C++
+au FileType cpp,objcpp set syntax=cpp
+au BufNewFile,BufRead *
+\ if expand('%:e') =~ '^\(h\|hh\|hxx\|hpp\|ii\|ixx\|ipp\|inl\|txx\|tpp\|tpl\|cc\|cxx\|cpp\)$' |
+\   if &ft != 'cpp'                                                                           |
+\     set ft=cpp                                                                              |
+\   endif                                                                                     |
+\ endif                                                                                       |
 
 " rainbow parentheses
 au FileType c,cpp,objc,objcpp call rainbow#load()
