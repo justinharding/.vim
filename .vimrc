@@ -6,7 +6,7 @@ filetype plugin on
      set nocompatible " explicitly get out of vi-compatible mode
      set noexrc " don't use local version of .(g)vimrc, .exrc
      set background=dark " we plan to use a dark background
-"     set cpoptions=aABceFsmq
+     set cpoptions=aABceFsmq
      "             |||||||||
      "             ||||||||+-- When joining lines, leave the cursor 
      "             |||||||      between joined lines
@@ -47,27 +47,22 @@ filetype plugin on
      "             | +-- <Space> Normal and Visual
      "             +-- <BS> Normal and Visual
      " ignore these list file extensions
-     set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
-                     \*.jpg,*.gif,*.png
+     set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
      set wildmode=list:longest " turn on wild mode huge list
 
      set cursorcolumn " highlight the current column
      set cursorline " highlight current line
      set lazyredraw " do not redraw while running macros
-     set linespace=0 " don't insert any extra pixel lines 
-                      " betweens rows
-     set list " we do what to show tabs, to ensure we get them 
-               " out of my files
-     set matchtime=5 " how many tenths of a second to blink 
-                      " matching brackets for
+     set linespace=0 " don't insert any extra pixel lines betweens rows
+     set list " we do what to show tabs, to ensure we get them out of my files
+     set matchtime=5 " how many tenths of a second to blink matching brackets for
      set hlsearch " highlight searched for phrases
      set nostartofline " leave my cursor where it was
      set novisualbell " don't blink
      set number " turn on line numbers
      set numberwidth=5 " We are good up to 99999 lines
      set report=0 " tell us when anything is changed via :...
-     set shortmess=aOstT " shortens messages to avoid 
-                          " 'press a key' prompt
+     set shortmess=aOstT " shortens messages to avoid 'press a key' prompt
      set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
      "              | | | | |  |   |      |  |     |    |
      "              | | | | |  |   |      |  |     |    + current 
@@ -98,34 +93,30 @@ filetype plugin on
      set cino=N-s,i0,g0
 
      set foldenable " Turn on folding
-     set foldmarker={,} " Fold C style code (only use this as default 
-                         " if you use a high foldlevel)
+     set foldmarker={,} " Fold C style code (only use this as default if you use a high foldlevel)
      set foldmethod=marker " Fold on the marker
-     set foldlevel=100 " Don't autofold anything (but I can still 
-                       " fold manually)
-     set foldopen=block,hor,mark,percent,quickfix,tag " what movements
-                                                       " open folds 
+     set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+     set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
      function SimpleFoldText() " {
          return getline(v:foldstart).' '
      endfunction " }
-     set foldtext=SimpleFoldText() " Custom fold text function 
-                                    " (cleaner than default)
+     set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
  
      let b:match_ignorecase = 1 " case is stupid
-     let perl_extended_vars=1 " highlight advanced perl vars 
-                               " inside strings
+     let perl_extended_vars=1 " highlight advanced perl vars inside strings
 
  if has("gui_running")
-     colorscheme inkpot
-         set columns=180 " perfect size for me
-         "set guifont=Consolas:h10 " My favorite font
+     " colorscheme inkpot
+     colorscheme mustang
+         set columns=180
+         "set guifont=Consolas:h10 
          "set guifont=DejaVu\ Sans\ Mono\ 10
          set guifont=Ubuntu\ Mono\ 10
          set guioptions=ce 
          "              ||
          "              |+-- use simple dialogs rather than pop-ups
          "              +  use GUI tabs, not console style tabs
-         set lines=55 " perfect size for me
+         set lines=55
          set mousehide " hide the mouse cursor when typing
 endif
 
