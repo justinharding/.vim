@@ -100,6 +100,13 @@ set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
 let b:match_ignorecase = 1 " case is stupid
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
 
+if has('win32')
+     set backup " make backup files
+     set backupdir=~/tmp/vim/backup " where to put backup files
+     set clipboard+=unnamed " share windows clipboard
+     set directory=~/tmp/vim/swap " directory to place swap files in
+endif
+
 set fileformats=unix,dos,mac " support all three, in this order
 set list " we do what to show tabs, to ensure we get them out of my files
 set hlsearch " highlight searched for phrases
@@ -109,9 +116,12 @@ if has("gui_running")
     " colorscheme inkpot
     colorscheme mustang
     set columns=180
-    "set guifont=Consolas:h10 
+if has('win32')
+    set guifont=Consolas:h10 
+else
     "set guifont=DejaVu\ Sans\ Mono\ 10
     set guifont=Ubuntu\ Mono\ 10
+endif
     set guioptions=ce 
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
@@ -135,6 +145,7 @@ au FileType c,cpp,objc,objcpp call rainbow#load()
 " gnu global
 let Gtags_Auto_Map = 1
 
+if !has('win32')
 " Clang Complete Settings
 " g:clang_user_options set at vimprj section
 let g:clang_use_library=1
@@ -191,7 +202,7 @@ noremap! <silent> <F6> <c-o>:ClangCheck<cr>
 "function! g:vimprj#dHooks['SetDefaultOptions']['main_options'](dParams)
     "let g:clang_user_options = '-std=c++11 -stdlib=libc++'
 "endfunction
-
+endif
 
 
 
